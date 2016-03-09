@@ -15,9 +15,12 @@
     static TTNetworkTools *instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSURL *baseUrl = [NSURL ];
+        NSURL *baseUrl = [NSURL URLWithString:@"http://api.toutiao.io/v2/"];
+        NSURLSessionConfiguration *sessionConf = [NSURLSessionConfiguration defaultSessionConfiguration];
+        instance = [[self alloc] initWithBaseURL:baseUrl sessionConfiguration:sessionConf];
+        instance.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", nil];
     });
-    return self;
+    return instance;
 }
 
 @end

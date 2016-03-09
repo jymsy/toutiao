@@ -15,6 +15,8 @@
 		06F207D91C8C663000F9ADCD /* LatestArticlesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207D81C8C663000F9ADCD /* LatestArticlesViewController.m */; };
 		06F207DD1C8C7F0D00F9ADCD /* ArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207DC1C8C7F0D00F9ADCD /* ArticleCell.m */; };
 		06F207E31C8E789200F9ADCD /* TTNetworkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207E21C8E789200F9ADCD /* TTNetworkTools.m */; };
+		06F207E61C8FC7A200F9ADCD /* ArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207E51C8FC7A200F9ADCD /* ArticleModel.m */; };
+		06F207E91C8FC86F00F9ADCD /* ResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207E81C8FC86F00F9ADCD /* ResponseModel.m */; };
 		2B7BD49C129D403794725C7F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47FD8149ED929E55B07A789C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,10 @@
 		06F207DF1C8D264C00F9ADCD /* ToutiaoPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToutiaoPrefix.pch; sourceTree = "<group>"; };
 		06F207E11C8E789200F9ADCD /* TTNetworkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTNetworkTools.h; sourceTree = "<group>"; };
 		06F207E21C8E789200F9ADCD /* TTNetworkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTNetworkTools.m; sourceTree = "<group>"; };
+		06F207E41C8FC7A200F9ADCD /* ArticleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleModel.h; sourceTree = "<group>"; };
+		06F207E51C8FC7A200F9ADCD /* ArticleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleModel.m; sourceTree = "<group>"; };
+		06F207E71C8FC86F00F9ADCD /* ResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseModel.h; sourceTree = "<group>"; };
+		06F207E81C8FC86F00F9ADCD /* ResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseModel.m; sourceTree = "<group>"; };
 		0815B25C305C247F43AC23A8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		47FD8149ED929E55B07A789C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		89179EAE100E49774BE111C5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +107,8 @@
 				06F207D71C8C663000F9ADCD /* LatestArticlesViewController.h */,
 				06F207DB1C8C7F0D00F9ADCD /* ArticleCell.h */,
 				06F207DC1C8C7F0D00F9ADCD /* ArticleCell.m */,
+				06F207E41C8FC7A200F9ADCD /* ArticleModel.h */,
+				06F207E51C8FC7A200F9ADCD /* ArticleModel.m */,
 			);
 			name = LatestArticals;
 			sourceTree = "<group>";
@@ -110,6 +118,8 @@
 			children = (
 				06F207E11C8E789200F9ADCD /* TTNetworkTools.h */,
 				06F207E21C8E789200F9ADCD /* TTNetworkTools.m */,
+				06F207E71C8FC86F00F9ADCD /* ResponseModel.h */,
+				06F207E81C8FC86F00F9ADCD /* ResponseModel.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -253,8 +263,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06F207E91C8FC86F00F9ADCD /* ResponseModel.m in Sources */,
 				06F207DD1C8C7F0D00F9ADCD /* ArticleCell.m in Sources */,
 				06F207E31C8E789200F9ADCD /* TTNetworkTools.m in Sources */,
+				06F207E61C8FC7A200F9ADCD /* ArticleModel.m in Sources */,
 				06F207D91C8C663000F9ADCD /* LatestArticlesViewController.m in Sources */,
 				06F207C21C8C59A200F9ADCD /* AppDelegate.m in Sources */,
 				06F207BF1C8C59A100F9ADCD /* main.m in Sources */,

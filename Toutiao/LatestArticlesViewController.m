@@ -8,6 +8,8 @@
 
 #import "LatestArticlesViewController.h"
 #import "ArticleCell.h"
+#import "TTNetworkTools.h"
+#import "ArticleModel.h"
 
 @interface LatestArticlesViewController ()
 
@@ -29,10 +31,25 @@
 // ------下拉刷新
 - (void)loadData
 {
-    //http://api.toutiao.io/v2/dailies/latest?app_key=nid5puvc9t0v7hltuy1u&signature=2f67b55ef59f99f63b84edff19d875d38069a666&timestamp=1457405182
+    //api.toutiao.io/v2/dailies/latest?app_key=nid5puvc9t0v7hltuy1u&signature=2f67b55ef59f99f63b84edff19d875d38069a666&timestamp=1457405182
 //    NSString *allUrlstring = [NSString stringWithFormat:@"/nc/article/%@/0-20.html",self.urlString];
+    NSString *url = @"dailies/latest";
 //    [self loadDataForType:1 withURL:allUrlstring];
-    [self.tableView.mj_header endRefreshing];
+    [[TTNetworkTools SharedNetworkTools]GET:url
+        parameters:@{ @"app_key": @"nid5puvc9t0v7hltuy1u",
+                           @"signature": @"2f67b55ef59f99f63b84edff19d875d38069a666",
+                           @"timestamp": @1457405182 }
+    success:^(NSURLSessionDataTask *task, NSDictionary *responseObject) {
+        NSLog(url);
+        NSDictionary *articles = responseObject[@"data"][@"article"];
+        NSArray *arrayM = [ArticleModel objectArrayWithKeyValuesArray:articles];
+        [self.tableView.mj_header endRefreshing];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"%@", error);
+        [self.tableView.mj_header endRefreshing];
+    }];
+    
+    
 }
 
 #pragma mark - Table view data source
