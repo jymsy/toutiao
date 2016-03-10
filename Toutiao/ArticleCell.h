@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ArticleModel.h"
 
 @interface ArticleCell : UITableViewCell
+
+@property (nonatomic, strong) ArticleModel *article;
 
 @end

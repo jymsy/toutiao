@@ -13,6 +13,8 @@
 
 @interface LatestArticlesViewController ()
 
+@property(nonatomic, strong) NSMutableArray *articleList;
+
 @end
 
 @implementation LatestArticlesViewController
@@ -27,6 +29,12 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView.mj_header beginRefreshing];
+}
+
 #pragma mark - /************************* 刷新数据 ***************************/
 // ------下拉刷新
 - (void)loadData
@@ -35,7 +43,7 @@
 //    NSString *allUrlstring = [NSString stringWithFormat:@"/nc/article/%@/0-20.html",self.urlString];
     NSString *url = @"dailies/latest";
 //    [self loadDataForType:1 withURL:allUrlstring];
-    [[TTNetworkTools SharedNetworkTools]GET:url
+    [[[TTNetworkTools SharedNetworkTools]GET:url
         parameters:@{ @"app_key": @"nid5puvc9t0v7hltuy1u",
                            @"signature": @"2f67b55ef59f99f63b84edff19d875d38069a666",
                            @"timestamp": @1457405182 }
@@ -43,25 +51,27 @@
         NSLog(url);
         NSDictionary *articles = responseObject[@"data"][@"article"];
         NSArray *arrayM = [ArticleModel objectArrayWithKeyValuesArray:articles];
+        _articleList = [arrayM mutableCopy];
+        [self.tableView reloadData];
         [self.tableView.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"%@", error);
         [self.tableView.mj_header endRefreshing];
-    }];
+    }] resume];
     
     
 }
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return self.articleList.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ArticleModel *articleModel = self.articleList[indexPath.row];
     ArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"article" forIndexPath:indexPath];
-    
-    
+    cell.article = articleModel;
     return cell;
 }
 
