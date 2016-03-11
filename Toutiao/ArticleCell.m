@@ -11,7 +11,9 @@
 @interface ArticleCell()
 
 @property (weak, nonatomic) IBOutlet UILabel *title;
-
+@property (weak, nonatomic) IBOutlet UILabel *subject;
+@property (weak, nonatomic) IBOutlet UILabel *likeCount;
+@property (weak, nonatomic) IBOutlet UILabel *commentCount;
 
 @end
 
@@ -32,6 +34,9 @@
     _article = article;
     NSLog(@"%@", self.article.title);
     self.title.text = self.article.title;
+    self.subject.text = [NSString stringWithFormat:@"选自 %@", self.article.subject[@"name"]];
+    self.likeCount.text = [NSString stringWithFormat:@"%d", [self.article.like_count intValue]];
+    self.commentCount.text = [NSString stringWithFormat:@"%d", [self.article.comment_count intValue]];
 }
 
 @end
