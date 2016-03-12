@@ -10,6 +10,7 @@
 #import "ArticleCell.h"
 #import "TTNetworkTools.h"
 #import "ArticleModel.h"
+#import "ArticleDetailViewController.h"
 
 @interface LatestArticlesViewController ()
 
@@ -81,14 +82,20 @@
     return 97;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.destinationViewController isKindOfClass:[ArticleDetailViewController class]]) {
+        ArticleDetailViewController *advc = segue.destinationViewController;
+        NSInteger row = self.tableView.indexPathForSelectedRow.row;
+        ArticleModel *model = self.articleList[row];
+        advc.articleID = model.id;
+    }
 }
-*/
+
 
 @end
