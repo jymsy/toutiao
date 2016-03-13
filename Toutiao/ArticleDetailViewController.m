@@ -2,7 +2,7 @@
 //  ArticleDetailViewController.m
 //  Toutiao
 //
-//  Created by 蒋羽萌 on 16/3/12.
+//  Created by 蒋羽萌 on 16/3/13.
 //  Copyright © 2016年 蒋羽萌. All rights reserved.
 //
 
@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {

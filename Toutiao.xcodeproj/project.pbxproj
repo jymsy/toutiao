@@ -18,7 +18,9 @@
 		06F207E61C8FC7A200F9ADCD /* ArticleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207E51C8FC7A200F9ADCD /* ArticleModel.m */; };
 		06F207E91C8FC86F00F9ADCD /* ResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207E81C8FC86F00F9ADCD /* ResponseModel.m */; };
 		06F207ED1C9323EF00F9ADCD /* ArticleDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207EC1C9323EF00F9ADCD /* ArticleDetailModel.m */; };
-		06F207F01C945F5100F9ADCD /* ArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207EF1C945F5100F9ADCD /* ArticleDetailViewController.m */; };
+		06F207F41C9535C200F9ADCD /* ArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207F21C9535C200F9ADCD /* ArticleDetailViewController.m */; };
+		06F207F71C9536FA00F9ADCD /* ArticleDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F207F61C9536FA00F9ADCD /* ArticleDetail.storyboard */; };
+		06F207FA1C953B1500F9ADCD /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207F91C953B1500F9ADCD /* DetailCell.m */; };
 		2B7BD49C129D403794725C7F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47FD8149ED929E55B07A789C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -44,8 +46,11 @@
 		06F207E81C8FC86F00F9ADCD /* ResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseModel.m; sourceTree = "<group>"; };
 		06F207EB1C9323EF00F9ADCD /* ArticleDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleDetailModel.h; sourceTree = "<group>"; };
 		06F207EC1C9323EF00F9ADCD /* ArticleDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleDetailModel.m; sourceTree = "<group>"; };
-		06F207EE1C945F5100F9ADCD /* ArticleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleDetailViewController.h; sourceTree = "<group>"; };
-		06F207EF1C945F5100F9ADCD /* ArticleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleDetailViewController.m; sourceTree = "<group>"; };
+		06F207F11C9535C200F9ADCD /* ArticleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleDetailViewController.h; sourceTree = "<group>"; };
+		06F207F21C9535C200F9ADCD /* ArticleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleDetailViewController.m; sourceTree = "<group>"; };
+		06F207F61C9536FA00F9ADCD /* ArticleDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ArticleDetail.storyboard; sourceTree = "<group>"; };
+		06F207F81C953B1500F9ADCD /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
+		06F207F91C953B1500F9ADCD /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
 		0815B25C305C247F43AC23A8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		47FD8149ED929E55B07A789C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		89179EAE100E49774BE111C5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -136,8 +141,11 @@
 			children = (
 				06F207EB1C9323EF00F9ADCD /* ArticleDetailModel.h */,
 				06F207EC1C9323EF00F9ADCD /* ArticleDetailModel.m */,
-				06F207EE1C945F5100F9ADCD /* ArticleDetailViewController.h */,
-				06F207EF1C945F5100F9ADCD /* ArticleDetailViewController.m */,
+				06F207F11C9535C200F9ADCD /* ArticleDetailViewController.h */,
+				06F207F21C9535C200F9ADCD /* ArticleDetailViewController.m */,
+				06F207F61C9536FA00F9ADCD /* ArticleDetail.storyboard */,
+				06F207F81C953B1500F9ADCD /* DetailCell.h */,
+				06F207F91C953B1500F9ADCD /* DetailCell.m */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
@@ -222,6 +230,7 @@
 			files = (
 				06F207D01C8C59A200F9ADCD /* LaunchScreen.storyboard in Resources */,
 				06F207CD1C8C59A200F9ADCD /* Assets.xcassets in Resources */,
+				06F207F71C9536FA00F9ADCD /* ArticleDetail.storyboard in Resources */,
 				06F207CB1C8C59A200F9ADCD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,10 +292,11 @@
 			files = (
 				06F207E91C8FC86F00F9ADCD /* ResponseModel.m in Sources */,
 				06F207DD1C8C7F0D00F9ADCD /* ArticleCell.m in Sources */,
-				06F207F01C945F5100F9ADCD /* ArticleDetailViewController.m in Sources */,
+				06F207F41C9535C200F9ADCD /* ArticleDetailViewController.m in Sources */,
 				06F207E31C8E789200F9ADCD /* TTNetworkTools.m in Sources */,
 				06F207E61C8FC7A200F9ADCD /* ArticleModel.m in Sources */,
 				06F207D91C8C663000F9ADCD /* LatestArticlesViewController.m in Sources */,
+				06F207FA1C953B1500F9ADCD /* DetailCell.m in Sources */,
 				06F207C21C8C59A200F9ADCD /* AppDelegate.m in Sources */,
 				06F207BF1C8C59A100F9ADCD /* main.m in Sources */,
 				06F207ED1C9323EF00F9ADCD /* ArticleDetailModel.m in Sources */,

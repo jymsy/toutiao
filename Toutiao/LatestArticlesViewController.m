@@ -82,6 +82,21 @@
     return 97;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 刚选中又马上取消选中，格子不变色
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ArticleDetailViewController *advc = [[UIStoryboard storyboardWithName:@"ArticleDetail" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+
+    ArticleModel *model = self.articleList[indexPath.row];
+    advc.articleID = model.id;
+    advc.navigationItem.title = model.title;
+    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backItem];
+    [self.navigationController pushViewController:advc animated:YES];
+    
+}
 
 #pragma mark - Navigation
 
@@ -94,6 +109,9 @@
         NSInteger row = self.tableView.indexPathForSelectedRow.row;
         ArticleModel *model = self.articleList[row];
         advc.articleID = model.id;
+        advc.navigationItem.title = model.title;
+        
+        
     }
 }
 
