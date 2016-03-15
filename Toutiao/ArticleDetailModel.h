@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSDictionary *author_info;
 @property (nonatomic, copy) NSArray *css;
 @property (nonatomic, copy) NSArray *js;
+@property (nonatomic, strong) NSDictionary *subject;
 @property (nonatomic, assign) NSInteger create_at;
 
 @end

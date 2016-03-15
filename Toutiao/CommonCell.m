@@ -1,19 +1,14 @@
 //
-//  DetailCell.m
+//  CommonCell.m
 //  Toutiao
 //
 //  Created by 蒋羽萌 on 16/3/14.
 //  Copyright © 2016年 蒋羽萌. All rights reserved.
 //
 
-#import "DetailCell.h"
+#import "CommonCell.h"
 
-@interface DetailCell()
-@property (weak, nonatomic) IBOutlet UILabel *from;
-
-@end
-
-@implementation DetailCell
+@implementation CommonCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -26,9 +21,7 @@
 }
 
 -(void)setDetailModel:(ArticleDetailModel *)detailModel {
-    [super setDetailModel:detailModel];
-    self.from.text = self.detailModel.subject[@"name"];
-    
+    _detailModel = detailModel;
 }
 
 @end

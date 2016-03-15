@@ -49,7 +49,6 @@
                            @"signature": @"2f67b55ef59f99f63b84edff19d875d38069a666",
                            @"timestamp": @1457405182 }
     success:^(NSURLSessionDataTask *task, NSDictionary *responseObject) {
-        NSLog(url);
         NSDictionary *articles = responseObject[@"data"][@"article"];
         NSArray *arrayM = [ArticleModel objectArrayWithKeyValuesArray:articles];
         _articleList = [arrayM mutableCopy];

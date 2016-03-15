@@ -9,7 +9,8 @@
 #ifndef ToutiaoPrefix_pch
 #define ToutiaoPrefix_pch
 
-
+#import "Macro.h"
+#import "UIView+Frame.h"
 #import <MJRefresh/MJRefresh.h>
 #import <MJExtension/MJExtension.h>
 // Include any system framework and library headers here that should be included in all compilation units.

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		063D44821C96649800204B22 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D44811C96649800204B22 /* DetailCell.m */; };
+		063D44881C9716EE00204B22 /* CommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D44871C9716EE00204B22 /* CommonCell.m */; };
+		063D448C1C9719FC00204B22 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D448B1C9719FC00204B22 /* UIView+Frame.m */; };
+		063D44911C97B2EF00204B22 /* DetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 063D44901C97B2EF00204B22 /* DetailHeader.xib */; };
 		06F207BF1C8C59A100F9ADCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207BE1C8C59A100F9ADCD /* main.m */; };
 		06F207C21C8C59A200F9ADCD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207C11C8C59A200F9ADCD /* AppDelegate.m */; };
 		06F207CB1C8C59A200F9ADCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F207C91C8C59A200F9ADCD /* Main.storyboard */; };
@@ -20,11 +24,18 @@
 		06F207ED1C9323EF00F9ADCD /* ArticleDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207EC1C9323EF00F9ADCD /* ArticleDetailModel.m */; };
 		06F207F41C9535C200F9ADCD /* ArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207F21C9535C200F9ADCD /* ArticleDetailViewController.m */; };
 		06F207F71C9536FA00F9ADCD /* ArticleDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F207F61C9536FA00F9ADCD /* ArticleDetail.storyboard */; };
-		06F207FA1C953B1500F9ADCD /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207F91C953B1500F9ADCD /* DetailCell.m */; };
 		2B7BD49C129D403794725C7F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 47FD8149ED929E55B07A789C /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		063D44801C96649800204B22 /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
+		063D44811C96649800204B22 /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
+		063D44861C9716EE00204B22 /* CommonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonCell.h; sourceTree = "<group>"; };
+		063D44871C9716EE00204B22 /* CommonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonCell.m; sourceTree = "<group>"; };
+		063D448A1C9719FC00204B22 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		063D448B1C9719FC00204B22 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		063D448D1C97B0FB00204B22 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
+		063D44901C97B2EF00204B22 /* DetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailHeader.xib; sourceTree = "<group>"; };
 		06F207BA1C8C59A100F9ADCD /* Toutiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toutiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06F207BE1C8C59A100F9ADCD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		06F207C01C8C59A100F9ADCD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -49,8 +60,6 @@
 		06F207F11C9535C200F9ADCD /* ArticleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleDetailViewController.h; sourceTree = "<group>"; };
 		06F207F21C9535C200F9ADCD /* ArticleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleDetailViewController.m; sourceTree = "<group>"; };
 		06F207F61C9536FA00F9ADCD /* ArticleDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ArticleDetail.storyboard; sourceTree = "<group>"; };
-		06F207F81C953B1500F9ADCD /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
-		06F207F91C953B1500F9ADCD /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
 		0815B25C305C247F43AC23A8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		47FD8149ED929E55B07A789C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		89179EAE100E49774BE111C5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -68,6 +77,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		063D44891C97193600204B22 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				063D448A1C9719FC00204B22 /* UIView+Frame.h */,
+				063D448B1C9719FC00204B22 /* UIView+Frame.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 		06F207B11C8C59A100F9ADCD = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +107,7 @@
 		06F207BC1C8C59A100F9ADCD /* Toutiao */ = {
 			isa = PBXGroup;
 			children = (
+				063D44891C97193600204B22 /* Other */,
 				06F207EA1C9323CB00F9ADCD /* Detail */,
 				06F207E01C8E785E00F9ADCD /* Tools */,
 				06F207DA1C8C7C5E00F9ADCD /* LatestArticals */,
@@ -97,6 +116,7 @@
 				06F207DF1C8D264C00F9ADCD /* ToutiaoPrefix.pch */,
 				06F207C91C8C59A200F9ADCD /* Main.storyboard */,
 				06F207CC1C8C59A200F9ADCD /* Assets.xcassets */,
+				063D448D1C97B0FB00204B22 /* Macro.h */,
 				06F207CE1C8C59A200F9ADCD /* LaunchScreen.storyboard */,
 				06F207D11C8C59A200F9ADCD /* Info.plist */,
 				06F207BD1C8C59A100F9ADCD /* Supporting Files */,
@@ -144,8 +164,11 @@
 				06F207F11C9535C200F9ADCD /* ArticleDetailViewController.h */,
 				06F207F21C9535C200F9ADCD /* ArticleDetailViewController.m */,
 				06F207F61C9536FA00F9ADCD /* ArticleDetail.storyboard */,
-				06F207F81C953B1500F9ADCD /* DetailCell.h */,
-				06F207F91C953B1500F9ADCD /* DetailCell.m */,
+				063D44801C96649800204B22 /* DetailCell.h */,
+				063D44811C96649800204B22 /* DetailCell.m */,
+				063D44861C9716EE00204B22 /* CommonCell.h */,
+				063D44871C9716EE00204B22 /* CommonCell.m */,
+				063D44901C97B2EF00204B22 /* DetailHeader.xib */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
@@ -228,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				063D44911C97B2EF00204B22 /* DetailHeader.xib in Resources */,
 				06F207D01C8C59A200F9ADCD /* LaunchScreen.storyboard in Resources */,
 				06F207CD1C8C59A200F9ADCD /* Assets.xcassets in Resources */,
 				06F207F71C9536FA00F9ADCD /* ArticleDetail.storyboard in Resources */,
@@ -293,10 +317,12 @@
 				06F207E91C8FC86F00F9ADCD /* ResponseModel.m in Sources */,
 				06F207DD1C8C7F0D00F9ADCD /* ArticleCell.m in Sources */,
 				06F207F41C9535C200F9ADCD /* ArticleDetailViewController.m in Sources */,
+				063D44881C9716EE00204B22 /* CommonCell.m in Sources */,
+				063D448C1C9719FC00204B22 /* UIView+Frame.m in Sources */,
 				06F207E31C8E789200F9ADCD /* TTNetworkTools.m in Sources */,
 				06F207E61C8FC7A200F9ADCD /* ArticleModel.m in Sources */,
 				06F207D91C8C663000F9ADCD /* LatestArticlesViewController.m in Sources */,
-				06F207FA1C953B1500F9ADCD /* DetailCell.m in Sources */,
+				063D44821C96649800204B22 /* DetailCell.m in Sources */,
 				06F207C21C8C59A200F9ADCD /* AppDelegate.m in Sources */,
 				06F207BF1C8C59A100F9ADCD /* main.m in Sources */,
 				06F207ED1C9323EF00F9ADCD /* ArticleDetailModel.m in Sources */,
