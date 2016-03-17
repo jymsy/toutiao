@@ -67,7 +67,14 @@
     NSMutableString *html = [NSMutableString string];
     [html appendString:@"<html>"];
     [html appendString:@"<head>"];
-    [html appendFormat:@"<link rel=\"stylesheet\" href=\"%@\">", self.detailModel.css[0]];
+//    for (NSString *js in self.detailModel.js) {
+//        [html appendFormat:@"<script src=\"%@\"></script>", js];
+//    }
+    for (NSString *css in self.detailModel.css) {
+        [html appendFormat:@"<link rel=\"stylesheet\" href=\"%@\">", css];
+    }
+    
+    
     [html appendString:@"</head>"];
     
     [html appendString:@"<body style=\"background:#f6f6f6\">"];
@@ -85,8 +92,11 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    self.webView.height = self.webView.scrollView.contentSize.height;
-    NSLog(@"reload %f", self.webView.height);
+//    self.webView.height = self.webView.scrollView.contentSize.height;
+//    NSLog(@"reload %f", [self.webView.scrollView contentSize].height);
+    self.webView.height = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
+    UIScrollView *tempView=(UIScrollView *)[self.webView.subviews objectAtIndex:0];
+    tempView.scrollEnabled=NO;
     [self.tableView reloadData];
 }
 
@@ -96,7 +106,6 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"%f", self.webView.height);
     return self.webView.height;
 }
 

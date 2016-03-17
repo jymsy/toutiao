@@ -28,6 +28,10 @@
         [weakSelf loadData];
     }];
     
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [weakSelf loadMoreData];
+    }];
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -58,8 +62,10 @@
         NSLog(@"%@", error);
         [self.tableView.mj_header endRefreshing];
     }] resume];
-    
-    
+}
+
+-(void)loadMoreData {
+    [self.tableView.mj_footer endRefreshingWithNoMoreData];
 }
 
 #pragma mark - Table view data source
