@@ -40,6 +40,7 @@
     self.subject.text = [NSString stringWithFormat:@"选自 %@", self.article.subject[@"name"]];
     self.likeCount.text = [NSString stringWithFormat:@"%ld", self.article.like_count];
     self.commentCount.text = [NSString stringWithFormat:@"%ld", self.article.comment_count];
+    self.avatar.layer.cornerRadius = self.avatar.bounds.size.width/2.0;
     [self.avatar sd_setImageWithURL:[NSURL URLWithString:self.article.user[@"avatar"]] placeholderImage:[UIImage imageNamed:@"avatar"]];
 }
 

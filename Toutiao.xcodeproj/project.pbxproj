@@ -11,6 +11,9 @@
 		063D44881C9716EE00204B22 /* CommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D44871C9716EE00204B22 /* CommonCell.m */; };
 		063D448C1C9719FC00204B22 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D448B1C9719FC00204B22 /* UIView+Frame.m */; };
 		063D44911C97B2EF00204B22 /* DetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 063D44901C97B2EF00204B22 /* DetailHeader.xib */; };
+		063D44951C9E410C00204B22 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D44941C9E410C00204B22 /* MainTabBarController.m */; };
+		063D44981C9E418E00204B22 /* TabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D44971C9E418E00204B22 /* TabBar.m */; };
+		063D449B1C9E41AA00204B22 /* BarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D449A1C9E41AA00204B22 /* BarButton.m */; };
 		06F207BF1C8C59A100F9ADCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207BE1C8C59A100F9ADCD /* main.m */; };
 		06F207C21C8C59A200F9ADCD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207C11C8C59A200F9ADCD /* AppDelegate.m */; };
 		06F207CB1C8C59A200F9ADCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F207C91C8C59A200F9ADCD /* Main.storyboard */; };
@@ -36,6 +39,12 @@
 		063D448B1C9719FC00204B22 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		063D448D1C97B0FB00204B22 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		063D44901C97B2EF00204B22 /* DetailHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailHeader.xib; sourceTree = "<group>"; };
+		063D44931C9E410C00204B22 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		063D44941C9E410C00204B22 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		063D44961C9E418E00204B22 /* TabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBar.h; sourceTree = "<group>"; };
+		063D44971C9E418E00204B22 /* TabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBar.m; sourceTree = "<group>"; };
+		063D44991C9E41AA00204B22 /* BarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarButton.h; sourceTree = "<group>"; };
+		063D449A1C9E41AA00204B22 /* BarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarButton.m; sourceTree = "<group>"; };
 		06F207BA1C8C59A100F9ADCD /* Toutiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toutiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06F207BE1C8C59A100F9ADCD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		06F207C01C8C59A100F9ADCD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +95,19 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
+		063D44921C9E40CF00204B22 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				063D44931C9E410C00204B22 /* MainTabBarController.h */,
+				063D44941C9E410C00204B22 /* MainTabBarController.m */,
+				063D44961C9E418E00204B22 /* TabBar.h */,
+				063D44971C9E418E00204B22 /* TabBar.m */,
+				063D44991C9E41AA00204B22 /* BarButton.h */,
+				063D449A1C9E41AA00204B22 /* BarButton.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
 		06F207B11C8C59A100F9ADCD = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +133,7 @@
 				06F207EA1C9323CB00F9ADCD /* Detail */,
 				06F207E01C8E785E00F9ADCD /* Tools */,
 				06F207DA1C8C7C5E00F9ADCD /* LatestArticals */,
+				063D44921C9E40CF00204B22 /* Main */,
 				06F207C01C8C59A100F9ADCD /* AppDelegate.h */,
 				06F207C11C8C59A200F9ADCD /* AppDelegate.m */,
 				06F207DF1C8D264C00F9ADCD /* ToutiaoPrefix.pch */,
@@ -314,7 +337,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				063D449B1C9E41AA00204B22 /* BarButton.m in Sources */,
 				06F207E91C8FC86F00F9ADCD /* ResponseModel.m in Sources */,
+				063D44951C9E410C00204B22 /* MainTabBarController.m in Sources */,
 				06F207DD1C8C7F0D00F9ADCD /* ArticleCell.m in Sources */,
 				06F207F41C9535C200F9ADCD /* ArticleDetailViewController.m in Sources */,
 				063D44881C9716EE00204B22 /* CommonCell.m in Sources */,
@@ -324,6 +349,7 @@
 				06F207D91C8C663000F9ADCD /* LatestArticlesViewController.m in Sources */,
 				063D44821C96649800204B22 /* DetailCell.m in Sources */,
 				06F207C21C8C59A200F9ADCD /* AppDelegate.m in Sources */,
+				063D44981C9E418E00204B22 /* TabBar.m in Sources */,
 				06F207BF1C8C59A100F9ADCD /* main.m in Sources */,
 				06F207ED1C9323EF00F9ADCD /* ArticleDetailModel.m in Sources */,
 			);
