@@ -7,6 +7,7 @@
 //
 
 #import "MainTabBarController.h"
+#import "TabBar.h"
 
 @interface MainTabBarController ()
 
@@ -17,7 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    TabBar *tabBar = [[TabBar alloc] init];
+    tabBar.frame = self.tabBar.bounds;
+    [self.tabBar addSubview:tabBar];
     
+    [tabBar addBarButton:@"精选"];
+    [tabBar addBarButton:@"订阅"];
+    [tabBar addBarButton:@"发现"];
+    [tabBar addBarButton:@"我的"];
 }
 
 @end

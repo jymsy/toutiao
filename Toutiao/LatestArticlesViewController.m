@@ -11,6 +11,7 @@
 #import "TTNetworkTools.h"
 #import "ArticleModel.h"
 #import "ArticleDetailViewController.h"
+#import "DetailTabBarController.h"
 
 @interface LatestArticlesViewController ()
 
@@ -91,14 +92,18 @@
 {
     // 刚选中又马上取消选中，格子不变色
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ArticleDetailViewController *advc = [[UIStoryboard storyboardWithName:@"ArticleDetail" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
-
+//    ArticleDetailViewController *advc = [[UIStoryboard storyboardWithName:@"ArticleDetail" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+//    DetailTabBarController *advc = [[UIStoryboard storyboardWithName:@"ArticleDetail" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+    
+    DetailTabBarController *advc = [[DetailTabBarController alloc]init];
+    
     ArticleModel *model = self.articleList[indexPath.row];
-    advc.articleID = model.id;
+//    advc.articleID = model.id;
     advc.navigationItem.title = model.title;
     
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     [self.navigationItem setBackBarButtonItem:backItem];
+    [advc setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:advc animated:YES];
     
 }

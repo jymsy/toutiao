@@ -10,12 +10,14 @@
 
 @implementation BarButton
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(void)layoutSubviews {
+    [super layoutSubviews];
+    self.titleLabel.font = [UIFont systemFontOfSize:10];
+//    self.titleLabel.x = 0;
+//    self.titleLabel.y = 0;
+//    self.titleLabel.shadowColor = [UIColor clearColor];
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+
 }
-*/
 
 @end

@@ -1,5 +1,5 @@
 //
-//  TabBar.h
+//  DetailTabBarController.h
 //  Toutiao
 //
 //  Created by 蒋羽萌 on 16/3/20.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TabBar : UIView
+@interface DetailTabBarController : UITabBarController
 
--(void)addBarButton:(NSString *)title;
+@property (nonatomic, assign) NSInteger articleID;
 
 @end
