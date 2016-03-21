@@ -10,12 +10,16 @@
 #import "ArticleCell.h"
 #import "TTNetworkTools.h"
 #import "ArticleModel.h"
-#import "ArticleDetailViewController.h"
+//#import "ArticleDetailViewController.h"
 #import "DetailTabBarController.h"
+#import "AuthorPopupController.h"
+#import "AuthorPresentationController.h"
 
-@interface LatestArticlesViewController ()
+@interface LatestArticlesViewController () <AvatarTappedDelegate, UIPopoverPresentationControllerDelegate, UIViewControllerTransitioningDelegate>
 
-@property(nonatomic, strong) NSMutableArray *articleList;
+@property (nonatomic, strong) NSMutableArray *articleList;
+@property (nonatomic, strong) UIPopoverPresentationController *popoverPtc;
+@property (nonatomic, strong) AuthorPopupController *authPopVC;
 
 @end
 
@@ -79,6 +83,7 @@
     ArticleModel *articleModel = self.articleList[indexPath.row];
     ArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"article" forIndexPath:indexPath];
     cell.article = articleModel;
+    cell.delegate = self;
     return cell;
 }
 
@@ -108,22 +113,45 @@
     
 }
 
+-(void)avatarTapped:(ArticleModel *)article {
+    NSLog(@"tapped %@", article.title);
+    AuthorPopupController *authPopVC = [[AuthorPopupController alloc] init];
+    authPopVC.modalPresentationStyle = UIModalPresentationCustom;
+    authPopVC.transitioningDelegate = self;
+//    self.popoverPtc = authPopVC.popoverPresentationController;
+//    self.popoverPtc.delegate = self;
+    [self presentViewController:authPopVC animated:YES completion:nil];
+}
+
+#pragma mark - popup delegate
+
+//* 为控制器返回一个UIPresentationController */
+//* 每当一个在一个控制器（ViewController）中新创建的一个新控制器（sVC）并试图modal后，都会为他创建一个UIPresentationController，用来控制这个控制器（sVC）的显示和移除 */
+-(UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented presentingViewController:(UIViewController *)presenting sourceViewController:(UIViewController *)source {
+    //* presented:要被modal出来的控制器（sVC） */
+    //* presenting:被modal出来控制器的父控制器（ViewController） */
+    //* 返回自定义的显示控制器 */
+    //* 要自定义显示状态和modal动画，必须自定义显示控制器 */
+    return [[AuthorPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
+}
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    if ([segue.destinationViewController isKindOfClass:[ArticleDetailViewController class]]) {
-        ArticleDetailViewController *advc = segue.destinationViewController;
-        NSInteger row = self.tableView.indexPathForSelectedRow.row;
-        ArticleModel *model = self.articleList[row];
-        advc.articleID = model.id;
-        advc.navigationItem.title = model.title;
-        
-        
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    // Get the new view controller using [segue destinationViewController].
+//    // Pass the selected object to the new view controller.
+//    if ([segue.destinationViewController isKindOfClass:[ArticleDetailViewController class]]) {
+//        ArticleDetailViewController *advc = segue.destinationViewController;
+//        NSInteger row = self.tableView.indexPathForSelectedRow.row;
+//        ArticleModel *model = self.articleList[row];
+//        advc.articleID = model.id;
+//        advc.navigationItem.title = model.title;
+//        
+//        
+//    }
+//}
 
 
 @end

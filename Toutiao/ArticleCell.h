@@ -9,8 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "ArticleModel.h"
 
+@protocol AvatarTappedDelegate <NSObject>
+
+-(void)avatarTapped:(ArticleModel *)article;
+
+@end
+
 @interface ArticleCell : UITableViewCell
 
 @property (nonatomic, strong) ArticleModel *article;
+@property (nonatomic, weak) id<AvatarTappedDelegate> delegate;
 
 @end

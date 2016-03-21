@@ -42,6 +42,16 @@
     self.commentCount.text = [NSString stringWithFormat:@"%ld", self.article.comment_count];
     self.avatar.layer.cornerRadius = self.avatar.bounds.size.width/2.0;
     [self.avatar sd_setImageWithURL:[NSURL URLWithString:self.article.user[@"avatar"]] placeholderImage:[UIImage imageNamed:@"avatar"]];
+    
+    //头像点击
+    self.avatar.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapAvatar = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarTapped:)];
+    [self.avatar addGestureRecognizer:tapAvatar];
+}
+
+-(void)avatarTapped:(UITapGestureRecognizer *)sender {
+//    NSLog(@"tapped %@", self.article.title);
+    [self.delegate avatarTapped:self.article];
 }
 
 @end
