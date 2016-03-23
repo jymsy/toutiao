@@ -17,15 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.view.backgroundColor = [UIColor blueColor];
+    UIView *view = [[NSBundle mainBundle] loadNibNamed:@"PopupView" owner:nil options:nil][0];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.view.layer.cornerRadius = 5.0;
-    
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.width - 80, 50, 20)];
-    btn.backgroundColor = [UIColor redColor];
-    btn.titleLabel.text = @"关注";
-    
-    [self.view addSubview:btn];
+    [self.view addSubview:view];
+//    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.width - 80, 50, 20)];
+//    btn.backgroundColor = [UIColor redColor];
+//    btn.titleLabel.text = @"关注";
+//    
+//    [self.view addSubview:btn];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

@@ -51,7 +51,7 @@
 
 -(void)avatarTapped:(UITapGestureRecognizer *)sender {
 //    NSLog(@"tapped %@", self.article.title);
-    [self.delegate avatarTapped:self.article];
+    [self.delegate avatarTapped:self.article avatar:self.avatar];
 }
 
 @end

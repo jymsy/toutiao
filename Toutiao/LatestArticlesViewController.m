@@ -10,16 +10,17 @@
 #import "ArticleCell.h"
 #import "TTNetworkTools.h"
 #import "ArticleModel.h"
-//#import "ArticleDetailViewController.h"
 #import "DetailTabBarController.h"
 #import "AuthorPopupController.h"
 #import "AuthorPresentationController.h"
 
-@interface LatestArticlesViewController () <AvatarTappedDelegate, UIPopoverPresentationControllerDelegate, UIViewControllerTransitioningDelegate>
+@interface LatestArticlesViewController () <AvatarTappedDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
 
 @property (nonatomic, strong) NSMutableArray *articleList;
 @property (nonatomic, strong) UIPopoverPresentationController *popoverPtc;
 @property (nonatomic, strong) AuthorPopupController *authPopVC;
+//* 用来记录当前的modal状态 */
+@property (nonatomic, assign) BOOL presenting;
 
 @end
 
@@ -36,6 +37,7 @@
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [weakSelf loadMoreData];
     }];
+    self.presenting = YES;
     
 }
 
@@ -113,13 +115,12 @@
     
 }
 
--(void)avatarTapped:(ArticleModel *)article {
+-(void)avatarTapped:(ArticleModel *)article avatar:(UIImageView *)avatar{
     NSLog(@"tapped %@", article.title);
     AuthorPopupController *authPopVC = [[AuthorPopupController alloc] init];
     authPopVC.modalPresentationStyle = UIModalPresentationCustom;
     authPopVC.transitioningDelegate = self;
-//    self.popoverPtc = authPopVC.popoverPresentationController;
-//    self.popoverPtc.delegate = self;
+    authPopVC.
     [self presentViewController:authPopVC animated:YES completion:nil];
 }
 
@@ -133,6 +134,56 @@
     //* 返回自定义的显示控制器 */
     //* 要自定义显示状态和modal动画，必须自定义显示控制器 */
     return [[AuthorPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
+}
+
+//* 返回控制器modal弹出（present）时候的显示动画的代理 */
+//* 这里返回的仅仅是一个实现了UIViewControllerAnimatedTransitioning协议的代理，具体的动画效果，要在这个对象实现的代理方法里面去实现 */
+//-(nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+//    return self;
+//}
+//
+////* 返回控制器modal消失（dismiss）时候的显示动画的代理 */
+////* 这里返回的仅仅是一个实现了UIViewControllerAnimatedTransitioning协议的代理，具体的动画效果，要在这个对象实现的代理方法里面去实现 */
+//- (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+//{
+//    //* 设置代理为父控制器（ViewController） */
+//    return self;
+//}
+
+//* 设置动画持续时间 */
+- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
+{
+    return 0.2;
+}
+
+//* 设置动画 */
+- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext
+{
+    //* 无论是控制器的present还是dismiss，走的代理方法都是这个，所以需要自行判断当前的modal状态 */
+    if (self.presenting) { //判断modal状态
+        //* 设置present动画 */
+        //* present的时候，toView是presentedView（要弹出的view，sVC的view） */
+        UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
+//        toView.x = toView.width;
+        [UIView animateWithDuration:0.2 animations:^{ //这里的动画持续时间要和上面的代理方法持续时间一致
+//            toView.x = 0;
+        } completion:^(BOOL finished) {
+            //* 必须在动画结束后，设置过渡状态为完成过渡，否则控制器是不可交互状态 */
+            [transitionContext completeTransition:YES];
+            self.presenting = NO; //动画完成修改modal状态
+        }];
+    }else{
+        //* 设置dismiss动画 */
+        //* dismiss的时候，fromView是presentedView（要消失的view，sVC的view） */
+        UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
+        [UIView animateWithDuration:0.2 animations:^{ //这里的动画持续时间要和上面的代理方法持续时间一致
+//            fromView.x = -fromView.width;
+        } completion:^(BOOL finished) {
+            //* 必须在动画结束后，设置过渡状态为完成过渡，否则控制器是不可交互状态 */
+            [transitionContext completeTransition:YES];
+            self.presenting = YES; //动画完成修改modal状态
+        }];
+    }
 }
 
 

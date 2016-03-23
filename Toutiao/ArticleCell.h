@@ -11,7 +11,7 @@
 
 @protocol AvatarTappedDelegate <NSObject>
 
--(void)avatarTapped:(ArticleModel *)article;
+-(void)avatarTapped:(ArticleModel *)article avatar:(UIImageView *)avatar;
 
 @end
 
