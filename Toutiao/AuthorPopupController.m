@@ -10,6 +10,12 @@
 
 @interface AuthorPopupController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *avatar;
+@property (weak, nonatomic) IBOutlet UILabel *fath;
+@property (weak, nonatomic) IBOutlet UIButton *closeBtn;
+
+@property (weak, nonatomic) IBOutlet UILabel *authorName;
+
 @end
 
 @implementation AuthorPopupController
@@ -17,15 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIView *view = [[NSBundle mainBundle] loadNibNamed:@"PopupView" owner:nil options:nil][0];
+//    UIView *view = [[NSBundle mainBundle] loadNibNamed:@"PopupView" owner:nil options:nil][0];
+    [[NSBundle mainBundle] loadNibNamed:@"PopupView" owner:self options:nil];
     self.view.backgroundColor = [UIColor whiteColor];
     self.view.layer.cornerRadius = 5.0;
-    [self.view addSubview:view];
-//    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.width - 80, 50, 20)];
-//    btn.backgroundColor = [UIColor redColor];
-//    btn.titleLabel.text = @"关注";
-//    
-//    [self.view addSubview:btn];
+    [self.view addSubview:self.popupView];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

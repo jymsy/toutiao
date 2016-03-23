@@ -10,5 +10,5 @@
 
 @interface AuthorPopupController : UIViewController
 
-
+@property (nonatomic, weak) IBOutlet UIView *popupView;
 @end
