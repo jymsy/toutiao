@@ -120,7 +120,8 @@
     AuthorPopupController *authPopVC = [[AuthorPopupController alloc] init];
     authPopVC.modalPresentationStyle = UIModalPresentationCustom;
     authPopVC.transitioningDelegate = self;
-//    authPopVC.
+    authPopVC.avatarUrl = article.user[@"avatar"];
+    authPopVC.name = article.user[@"name"];
     [self presentViewController:authPopVC animated:YES completion:nil];
 }
 

@@ -19,6 +19,7 @@
 		063D44A41C9ED92D00204B22 /* AuthorPopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D44A31C9ED92D00204B22 /* AuthorPopupController.m */; };
 		063D44A71C9F907E00204B22 /* AuthorPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D44A61C9F907E00204B22 /* AuthorPresentationController.m */; };
 		063D44A91C9FA27B00204B22 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 063D44A81C9FA27B00204B22 /* PopupView.xib */; };
+		063D44AC1CA3975F00204B22 /* PictureScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D44AB1CA3975F00204B22 /* PictureScrollCell.m */; };
 		06F207BF1C8C59A100F9ADCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207BE1C8C59A100F9ADCD /* main.m */; };
 		06F207C21C8C59A200F9ADCD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207C11C8C59A200F9ADCD /* AppDelegate.m */; };
 		06F207CB1C8C59A200F9ADCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F207C91C8C59A200F9ADCD /* Main.storyboard */; };
@@ -59,6 +60,8 @@
 		063D44A51C9F907E00204B22 /* AuthorPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorPresentationController.h; sourceTree = "<group>"; };
 		063D44A61C9F907E00204B22 /* AuthorPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorPresentationController.m; sourceTree = "<group>"; };
 		063D44A81C9FA27B00204B22 /* PopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
+		063D44AA1CA3975F00204B22 /* PictureScrollCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureScrollCell.h; sourceTree = "<group>"; };
+		063D44AB1CA3975F00204B22 /* PictureScrollCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureScrollCell.m; sourceTree = "<group>"; };
 		06F207BA1C8C59A100F9ADCD /* Toutiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toutiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06F207BE1C8C59A100F9ADCD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		06F207C01C8C59A100F9ADCD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -181,6 +184,8 @@
 				063D44A21C9ED92D00204B22 /* AuthorPopupController.h */,
 				063D44A31C9ED92D00204B22 /* AuthorPopupController.m */,
 				063D44A81C9FA27B00204B22 /* PopupView.xib */,
+				063D44AA1CA3975F00204B22 /* PictureScrollCell.h */,
+				063D44AB1CA3975F00204B22 /* PictureScrollCell.m */,
 			);
 			name = LatestArticals;
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				063D449B1C9E41AA00204B22 /* BarButton.m in Sources */,
+				063D44AC1CA3975F00204B22 /* PictureScrollCell.m in Sources */,
 				063D44A11C9E5F5200204B22 /* DetaiTabBar.m in Sources */,
 				06F207E91C8FC86F00F9ADCD /* ResponseModel.m in Sources */,
 				063D44951C9E410C00204B22 /* MainTabBarController.m in Sources */,

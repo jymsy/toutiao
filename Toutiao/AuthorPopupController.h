@@ -10,5 +10,7 @@
 
 @interface AuthorPopupController : UIViewController
 
-@property (nonatomic, weak) IBOutlet UIView *popupView;
+@property (nonatomic, strong) IBOutlet UIView *popupView;
+@property (nonatomic, copy) NSString *avatarUrl;
+@property (nonatomic, copy) NSString *name;
 @end

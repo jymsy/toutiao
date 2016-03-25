@@ -7,6 +7,7 @@
 //
 
 #import "AuthorPopupController.h"
+#import "UIImageView+WebCache.h"
 
 @interface AuthorPopupController ()
 
@@ -15,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *closeBtn;
 
 @property (weak, nonatomic) IBOutlet UILabel *authorName;
+@property (weak, nonatomic) IBOutlet UIButton *focuse;
 
 @end
 
@@ -27,8 +29,14 @@
     [[NSBundle mainBundle] loadNibNamed:@"PopupView" owner:self options:nil];
     self.view.backgroundColor = [UIColor whiteColor];
     self.view.layer.cornerRadius = 5.0;
+    self.avatar.layer.cornerRadius = self.avatar.bounds.size.width/2.0;
+    [self.avatar sd_setImageWithURL:[NSURL URLWithString:self.avatarUrl] placeholderImage:[UIImage imageNamed:@"avatar"]];
+    self.focuse.layer.cornerRadius = self.focuse.bounds.size.height/2.0;
+    self.authorName.text = self.name;
     [self.view addSubview:self.popupView];
 }
+
+
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
