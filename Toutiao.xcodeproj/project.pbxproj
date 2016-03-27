@@ -20,6 +20,7 @@
 		063D44A71C9F907E00204B22 /* AuthorPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D44A61C9F907E00204B22 /* AuthorPresentationController.m */; };
 		063D44A91C9FA27B00204B22 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 063D44A81C9FA27B00204B22 /* PopupView.xib */; };
 		063D44AC1CA3975F00204B22 /* PictureScrollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D44AB1CA3975F00204B22 /* PictureScrollCell.m */; };
+		063D44AF1CA7888000204B22 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D44AE1CA7888000204B22 /* BannerModel.m */; };
 		06F207BF1C8C59A100F9ADCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207BE1C8C59A100F9ADCD /* main.m */; };
 		06F207C21C8C59A200F9ADCD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207C11C8C59A200F9ADCD /* AppDelegate.m */; };
 		06F207CB1C8C59A200F9ADCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F207C91C8C59A200F9ADCD /* Main.storyboard */; };
@@ -62,6 +63,8 @@
 		063D44A81C9FA27B00204B22 /* PopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
 		063D44AA1CA3975F00204B22 /* PictureScrollCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureScrollCell.h; sourceTree = "<group>"; };
 		063D44AB1CA3975F00204B22 /* PictureScrollCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureScrollCell.m; sourceTree = "<group>"; };
+		063D44AD1CA7888000204B22 /* BannerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
+		063D44AE1CA7888000204B22 /* BannerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
 		06F207BA1C8C59A100F9ADCD /* Toutiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toutiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06F207BE1C8C59A100F9ADCD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		06F207C01C8C59A100F9ADCD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				063D44A81C9FA27B00204B22 /* PopupView.xib */,
 				063D44AA1CA3975F00204B22 /* PictureScrollCell.h */,
 				063D44AB1CA3975F00204B22 /* PictureScrollCell.m */,
+				063D44AD1CA7888000204B22 /* BannerModel.h */,
+				063D44AE1CA7888000204B22 /* BannerModel.m */,
 			);
 			name = LatestArticals;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				06F207C21C8C59A200F9ADCD /* AppDelegate.m in Sources */,
 				063D44981C9E418E00204B22 /* TabBar.m in Sources */,
 				06F207BF1C8C59A100F9ADCD /* main.m in Sources */,
+				063D44AF1CA7888000204B22 /* BannerModel.m in Sources */,
 				06F207ED1C9323EF00F9ADCD /* ArticleDetailModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

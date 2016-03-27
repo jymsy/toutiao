@@ -13,8 +13,9 @@
 #import "DetailTabBarController.h"
 #import "AuthorPopupController.h"
 #import "AuthorPresentationController.h"
+#import "PictureScrollCell.h"
 
-@interface LatestArticlesViewController () <AvatarTappedDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
+@interface LatestArticlesViewController () <AvatarTappedDelegate, BannerTappedDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
 
 @property (nonatomic, strong) NSMutableArray *articleList;
 @property (nonatomic, strong) UIPopoverPresentationController *popoverPtc;
@@ -77,11 +78,16 @@
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.articleList.count;
+    return self.articleList.count + 1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        PictureScrollCell *cell = [tableView dequeueReusableCellWithIdentifier:@"picture" forIndexPath:indexPath];
+        cell.delegate = self;
+        return cell;
+    }
     ArticleModel *articleModel = self.articleList[indexPath.row];
     ArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"article" forIndexPath:indexPath];
     cell.article = articleModel;
@@ -92,11 +98,18 @@
 #pragma mark - /************************* tbv代理方法 ***************************/
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == 0) {
+        return 200;
+    }
     return 97;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // 选中图片banner
+    if (indexPath.row == 0) {
+        return ;
+    }
     // 刚选中又马上取消选中，格子不变色
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 //    ArticleDetailViewController *advc = [[UIStoryboard storyboardWithName:@"ArticleDetail" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
@@ -105,7 +118,7 @@
     DetailTabBarController *advc = [[DetailTabBarController alloc]init];
     
     ArticleModel *model = self.articleList[indexPath.row];
-//    advc.articleID = model.id;
+    //    advc.articleID = model.id;
     advc.navigationItem.title = model.title;
     
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -123,6 +136,16 @@
     authPopVC.avatarUrl = article.user[@"avatar"];
     authPopVC.name = article.user[@"name"];
     [self presentViewController:authPopVC animated:YES completion:nil];
+}
+
+-(void)bannerTapped:(NSInteger)articleId title:(NSString *)title {
+    DetailTabBarController *advc = [[DetailTabBarController alloc]init];
+    advc.navigationItem.title = title;
+    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backItem];
+    [advc setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:advc animated:YES];
 }
 
 #pragma mark - popup delegate

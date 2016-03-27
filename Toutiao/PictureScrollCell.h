@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol BannerTappedDelegate <NSObject>
+
+-(void) bannerTapped:(NSInteger)articleId title:(NSString *)title;
+
+@end
+
 @interface PictureScrollCell : UITableViewCell
+
+-(NSInteger)currentArticleId;
+-(NSString *)currentAriicleTitle;
+@property (nonatomic, weak)id<BannerTappedDelegate> delegate;
 
 @end
