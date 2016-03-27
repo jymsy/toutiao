@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (nonatomic, strong) UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UILabel *subject;
+@property (weak, nonatomic) IBOutlet UIButton *focuseBtn;
 
 @end
 
@@ -117,6 +118,9 @@
         [cell.contentView addSubview:self.webView];
         return cell;
     }
+}
+- (IBAction)btnclicked:(id)sender {
+    NSLog(@"clicked");
 }
 
 /*

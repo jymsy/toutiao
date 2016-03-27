@@ -88,7 +88,7 @@
         cell.delegate = self;
         return cell;
     }
-    ArticleModel *articleModel = self.articleList[indexPath.row];
+    ArticleModel *articleModel = self.articleList[indexPath.row -1];
     ArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"article" forIndexPath:indexPath];
     cell.article = articleModel;
     cell.delegate = self;
@@ -117,7 +117,7 @@
     
     DetailTabBarController *advc = [[DetailTabBarController alloc]init];
     
-    ArticleModel *model = self.articleList[indexPath.row];
+    ArticleModel *model = self.articleList[indexPath.row - 1];
     //    advc.articleID = model.id;
     advc.navigationItem.title = model.title;
     

@@ -55,6 +55,7 @@
     
     // Insert the dimming view below everything else.
     [containerView insertSubview:[self dimmingView] atIndex:0];
+//    [containerView addSubview:self.dimmingView];
     
     // Set up the animations for fading in the dimming view.
     if([presentedViewController transitionCoordinator]) {

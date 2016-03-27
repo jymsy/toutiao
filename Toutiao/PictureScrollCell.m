@@ -61,8 +61,12 @@
         BannerModel *banner = _bannerArray[i];
         banner.bannerView = [[UIImageView alloc] initWithFrame:CGRectMake(SXSCREEN_W * i, 0, SXSCREEN_W, 200)];
         [banner.bannerView sd_setImageWithURL:[NSURL URLWithString:banner.image] placeholderImage:[UIImage imageNamed:@"avatar"]];
-        UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10.0 + i * SXSCREEN_W, self.pictureScroll.bounds.size.height - 50, SXSCREEN_W, 41)];
+        UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(10.0 + i * SXSCREEN_W, self.pictureScroll.bounds.size.height - 60, SXSCREEN_W - 20, 41)];
         title.text = banner.title;
+        title.font = [UIFont systemFontOfSize:15];
+        title.numberOfLines= 2;
+        title.lineBreakMode = NSLineBreakByWordWrapping;
+        
         banner.bannerView.userInteractionEnabled = YES;
         UITapGestureRecognizer *tapBanner = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bannerTapped:)];
         [banner.bannerView addGestureRecognizer:tapBanner];
