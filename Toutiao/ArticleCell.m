@@ -35,7 +35,6 @@
 -(void)setArticle:(ArticleModel *)article
 {
     _article = article;
-    NSLog(@"%ld:%@", self.article.id, self.article.title);
     self.title.text = self.article.title;
     self.subject.text = [NSString stringWithFormat:@"选自 %@", self.article.subject[@"name"]];
     self.likeCount.text = [NSString stringWithFormat:@"%ld", self.article.like_count];
@@ -50,8 +49,9 @@
 }
 
 -(void)avatarTapped:(UITapGestureRecognizer *)sender {
-//    NSLog(@"tapped %@", self.article.title);
-    [self.delegate avatarTapped:self.article avatar:self.avatar];
+    if ([self.delegate respondsToSelector:@selector(avatarTapped:avatar:)]) {
+        [self.delegate avatarTapped:self.article avatar:self.avatar];
+    }
 }
 
 @end

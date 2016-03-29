@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol AuthorNameTappedDelegate <NSObject>
+
+@optional
+-(void)authorNameTapped:(NSString *) userID;
+
+@end
+
 @interface AuthorPopupController : UIViewController
 
-
+@property (nonatomic, weak) id<AuthorNameTappedDelegate> delegate;
 @property (nonatomic, copy) NSString *avatarUrl;
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *userID;
 @end

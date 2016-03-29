@@ -38,6 +38,10 @@
     self.closeBtn.layer.borderWidth = 0.5;
     self.closeBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.closeBtn.layer.cornerRadius = 5;
+    
+    self.authorName.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapAuthorName = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(authorTapped:)];
+    [self.authorName addGestureRecognizer:tapAuthorName];
 }
 
 -(UIView *)popupView {
@@ -51,7 +55,12 @@
      [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
+-(void)authorTapped:(UITapGestureRecognizer *)sender {
+    if ([self.delegate respondsToSelector:@selector(authorNameTapped:)]) {
+        [self.delegate authorNameTapped:self.userID];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
 
 //- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 //{

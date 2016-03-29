@@ -14,8 +14,9 @@
 #import "AuthorPopupController.h"
 #import "AuthorPresentationController.h"
 #import "PictureScrollCell.h"
+#import "AuthorViewController.h"
 
-@interface LatestArticlesViewController () <AvatarTappedDelegate, BannerTappedDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
+@interface LatestArticlesViewController () <AvatarTappedDelegate, BannerTappedDelegate, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, AuthorNameTappedDelegate>
 
 @property (nonatomic, strong) NSMutableArray *articleList;
 @property (nonatomic, strong) UIPopoverPresentationController *popoverPtc;
@@ -135,6 +136,8 @@
     authPopVC.transitioningDelegate = self;
     authPopVC.avatarUrl = article.user[@"avatar"];
     authPopVC.name = article.user[@"name"];
+    authPopVC.userID = article.user[@"id"];
+    authPopVC.delegate = self;
     [self presentViewController:authPopVC animated:YES completion:nil];
 }
 
@@ -146,6 +149,13 @@
     [self.navigationItem setBackBarButtonItem:backItem];
     [advc setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:advc animated:YES];
+}
+
+-(void)authorNameTapped:(NSString *)userID {
+    AuthorViewController *authorVC = [[AuthorViewController alloc] init];
+    [authorVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:authorVC animated:YES];
+
 }
 
 #pragma mark - popup delegate
