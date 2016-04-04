@@ -151,8 +151,15 @@
     [self.navigationController pushViewController:advc animated:YES];
 }
 
--(void)authorNameTapped:(NSString *)userID {
-    AuthorViewController *authorVC = [[AuthorViewController alloc] init];
+-(void)authorNameTapped:(NSString *)userID avatarUrl:(NSString *)avatarUrl name:(NSString *)name{
+//    AuthorViewController *authorVC = [[AuthorViewController alloc] init];
+    /* 加载名为AuthorView的Storyboard */
+    AuthorViewController *authorVC = [[UIStoryboard storyboardWithName:@"AuthorView" bundle:[NSBundle mainBundle]] instantiateInitialViewController];
+    authorVC.userID = userID;
+    authorVC.avatarUrl = avatarUrl;
+    authorVC.navigationItem.title = name;
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [self.navigationItem setBackBarButtonItem:backItem];
     [authorVC setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:authorVC animated:YES];
 

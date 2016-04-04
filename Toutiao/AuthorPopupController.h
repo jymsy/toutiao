@@ -11,7 +11,7 @@
 @protocol AuthorNameTappedDelegate <NSObject>
 
 @optional
--(void)authorNameTapped:(NSString *) userID;
+-(void)authorNameTapped:(NSString *) userID avatarUrl:(NSString *)avatarUrl name:(NSString *)name;
 
 @end
 

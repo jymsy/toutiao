@@ -23,6 +23,10 @@
 		063D44AF1CA7888000204B22 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D44AE1CA7888000204B22 /* BannerModel.m */; };
 		066F02201CA83AFF00A9CF7E /* AuthorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 066F021F1CA83AFF00A9CF7E /* AuthorViewController.m */; };
 		069F5F271CAA28710084017D /* AuthorView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069F5F261CAA28710084017D /* AuthorView.storyboard */; };
+		069F5F311CB102880084017D /* AuthorHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 069F5F301CB102880084017D /* AuthorHeaderView.xib */; };
+		069F5F341CB111300084017D /* AuthorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F5F331CB111300084017D /* AuthorModel.m */; };
+		069F5F371CB1150E0084017D /* AuthorSharesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F5F361CB1150E0084017D /* AuthorSharesModel.m */; };
+		069F5F3A1CB12D340084017D /* AuthorShareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F5F391CB12D340084017D /* AuthorShareCell.m */; };
 		06F207BF1C8C59A100F9ADCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207BE1C8C59A100F9ADCD /* main.m */; };
 		06F207C21C8C59A200F9ADCD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207C11C8C59A200F9ADCD /* AppDelegate.m */; };
 		06F207CB1C8C59A200F9ADCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F207C91C8C59A200F9ADCD /* Main.storyboard */; };
@@ -69,6 +73,13 @@
 		066F021E1CA83AFF00A9CF7E /* AuthorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorViewController.h; path = Author/AuthorViewController.h; sourceTree = "<group>"; };
 		066F021F1CA83AFF00A9CF7E /* AuthorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorViewController.m; path = Author/AuthorViewController.m; sourceTree = "<group>"; };
 		069F5F261CAA28710084017D /* AuthorView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthorView.storyboard; sourceTree = "<group>"; };
+		069F5F301CB102880084017D /* AuthorHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthorHeaderView.xib; sourceTree = "<group>"; };
+		069F5F321CB111300084017D /* AuthorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorModel.h; sourceTree = "<group>"; };
+		069F5F331CB111300084017D /* AuthorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorModel.m; sourceTree = "<group>"; };
+		069F5F351CB1150E0084017D /* AuthorSharesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorSharesModel.h; sourceTree = "<group>"; };
+		069F5F361CB1150E0084017D /* AuthorSharesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorSharesModel.m; sourceTree = "<group>"; };
+		069F5F381CB12D340084017D /* AuthorShareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorShareCell.h; sourceTree = "<group>"; };
+		069F5F391CB12D340084017D /* AuthorShareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorShareCell.m; sourceTree = "<group>"; };
 		06F207BA1C8C59A100F9ADCD /* Toutiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toutiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06F207BE1C8C59A100F9ADCD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		06F207C01C8C59A100F9ADCD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -137,6 +148,13 @@
 				066F021E1CA83AFF00A9CF7E /* AuthorViewController.h */,
 				066F021F1CA83AFF00A9CF7E /* AuthorViewController.m */,
 				069F5F261CAA28710084017D /* AuthorView.storyboard */,
+				069F5F301CB102880084017D /* AuthorHeaderView.xib */,
+				069F5F321CB111300084017D /* AuthorModel.h */,
+				069F5F331CB111300084017D /* AuthorModel.m */,
+				069F5F351CB1150E0084017D /* AuthorSharesModel.h */,
+				069F5F361CB1150E0084017D /* AuthorSharesModel.m */,
+				069F5F381CB12D340084017D /* AuthorShareCell.h */,
+				069F5F391CB12D340084017D /* AuthorShareCell.m */,
 			);
 			name = Author;
 			sourceTree = "<group>";
@@ -323,6 +341,7 @@
 				063D44911C97B2EF00204B22 /* DetailHeader.xib in Resources */,
 				06F207D01C8C59A200F9ADCD /* LaunchScreen.storyboard in Resources */,
 				06F207CD1C8C59A200F9ADCD /* Assets.xcassets in Resources */,
+				069F5F311CB102880084017D /* AuthorHeaderView.xib in Resources */,
 				063D44A91C9FA27B00204B22 /* PopupView.xib in Resources */,
 				069F5F271CAA28710084017D /* AuthorView.storyboard in Resources */,
 				06F207CB1C8C59A200F9ADCD /* Main.storyboard in Resources */,
@@ -386,11 +405,14 @@
 			files = (
 				063D449B1C9E41AA00204B22 /* BarButton.m in Sources */,
 				063D44AC1CA3975F00204B22 /* PictureScrollCell.m in Sources */,
+				069F5F3A1CB12D340084017D /* AuthorShareCell.m in Sources */,
 				063D44A11C9E5F5200204B22 /* DetaiTabBar.m in Sources */,
 				06F207E91C8FC86F00F9ADCD /* ResponseModel.m in Sources */,
+				069F5F341CB111300084017D /* AuthorModel.m in Sources */,
 				063D44951C9E410C00204B22 /* MainTabBarController.m in Sources */,
 				063D44A71C9F907E00204B22 /* AuthorPresentationController.m in Sources */,
 				06F207DD1C8C7F0D00F9ADCD /* ArticleCell.m in Sources */,
+				069F5F371CB1150E0084017D /* AuthorSharesModel.m in Sources */,
 				066F02201CA83AFF00A9CF7E /* AuthorViewController.m in Sources */,
 				06F207F41C9535C200F9ADCD /* ArticleDetailViewController.m in Sources */,
 				063D44881C9716EE00204B22 /* CommonCell.m in Sources */,

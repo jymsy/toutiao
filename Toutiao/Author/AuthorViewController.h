@@ -10,4 +10,11 @@
 
 @interface AuthorViewController : UITableViewController
 
+@property (nonatomic, copy) NSString *userID;
+@property (nonatomic, copy) NSString *avatarUrl;
+@property (nonatomic, assign) NSInteger follower_count;
+@property (nonatomic, assign) NSInteger following_count;
+@property (nonatomic, assign) NSInteger share_count;
+@property (nonatomic, assign) NSInteger subjects_count;
+
 @end

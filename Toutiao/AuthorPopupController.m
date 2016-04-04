@@ -56,8 +56,8 @@
 }
 
 -(void)authorTapped:(UITapGestureRecognizer *)sender {
-    if ([self.delegate respondsToSelector:@selector(authorNameTapped:)]) {
-        [self.delegate authorNameTapped:self.userID];
+    if ([self.delegate respondsToSelector:@selector(authorNameTapped:avatarUrl:name:)]) {
+        [self.delegate authorNameTapped:self.userID avatarUrl:self.avatarUrl name:self.name];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
