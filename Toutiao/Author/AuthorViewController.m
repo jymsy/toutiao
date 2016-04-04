@@ -22,6 +22,10 @@
 @property (nonatomic, strong) AuthorModel *author;
 @property (nonatomic, copy) NSArray *sharesList;
 @property (nonatomic, copy) NSMutableArray *headerLabelList;
+//section header label view
+@property (nonatomic, strong) UIView *headerLabelView;
+//当前的label index
+@property (nonatomic, assign) NSUInteger labelIndex;
 
 @end
 
@@ -36,6 +40,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _labelIndex = 0;
     
     UIBarButtonItem *actionBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(right:)];
     UIBarButtonItem *shareBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share:)];
@@ -141,9 +147,7 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SXSCREEN_W, 20)];
-//    view.layer.borderColor = [UIColor lightGrayColor].CGColor;
-//    view.layer.borderWidth = 0.3;
+    _headerLabelView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SXSCREEN_W, 20)];
     
     CGFloat labelW = SXSCREEN_W / _headerLabelList.count;
     
@@ -156,12 +160,31 @@
         label.layer.borderWidth = 0.5;
         /* Section header is in 0th index... */
         [label setText:_headerLabelList[i]];
+        label.tag = i;
         label.userInteractionEnabled = YES;
-        [view addSubview:label];
+        [label addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(headerLabelClick:)]];
+        
+        if (i == _labelIndex) {
+            label.textColor = [UIColor blueColor];
+        }
+        [_headerLabelView addSubview:label];
     }
     
-        [view setBackgroundColor:[UIColor whiteColor]]; //your background color...
-    return view;
+    [_headerLabelView setBackgroundColor:[UIColor whiteColor]]; //your background color...
+    return _headerLabelView;
+}
+
+//section header label 点击
+-(void)headerLabelClick:(UITapGestureRecognizer *)recognizer {
+    UILabel *label = (UILabel *)recognizer.view;
+    [_headerLabelView.subviews enumerateObjectsUsingBlock:^(UILabel *obj, NSUInteger idx, BOOL *stop) {
+        if (idx != label.tag) {
+            obj.textColor = [UIColor blackColor];
+        }
+    }];
+    label.textColor = [UIColor blueColor];
+    _labelIndex = label.tag;
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
