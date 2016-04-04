@@ -14,5 +14,8 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *bio;
 @property (nonatomic, copy) NSString *github;
-
+@property (nonatomic, assign) NSInteger follower_count;
+@property (nonatomic, assign) NSInteger following_count;
+@property (nonatomic, assign) NSInteger share_count;
+@property (nonatomic, assign) NSInteger subjects_count;
 @end

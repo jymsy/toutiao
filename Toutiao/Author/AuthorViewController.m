@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (nonatomic, strong) AuthorModel *author;
 @property (nonatomic, copy) NSArray *sharesList;
+@property (nonatomic, copy) NSMutableArray *headerLabelList;
 
 @end
 
@@ -36,19 +37,48 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIBarButtonItem *actionBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(right:)];
+    UIBarButtonItem *shareBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share:)];
+    
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:actionBtn, shareBtn, nil];
+    
     [self.tableView setTableHeaderView:self.headerView];
     self.avatar.layer.cornerRadius = self.avatar.bounds.size.width / 2.0;
+    NSLog(@"%f", self.avatar.layer.cornerRadius);
     self.focusBtn.layer.cornerRadius = self.focusBtn.bounds.size.height / 2.0;
     
-    
+    [self loadData];
     __weak AuthorViewController *weakSelf = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [weakSelf loadData];
+        [weakSelf loadAuthorArticles];
     }];
     
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [weakSelf loadMoreData];
     }];
+}
+
+-(void)addHeaderLabel:(NSString *)name {
+    if (!_headerLabelList) {
+        _headerLabelList = [[NSMutableArray alloc] init];
+    }
+    [_headerLabelList addObject:name];
+}
+
+//举报
+-(void)right:(id)sender {
+    NSLog(@"right");
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+    }]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)share:(id)sender {
+    NSLog(@"share");
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -68,10 +98,12 @@
                                          NSData *author =responseObject[@"data"];
                                          _author = [AuthorModel objectWithKeyValues:author];
                                          [self.avatar sd_setImageWithURL:[NSURL URLWithString:self.avatarUrl] placeholderImage:[UIImage imageNamed:@"avatar"]];
+                                         [self addHeaderLabel:[NSString stringWithFormat:@"分享  %ld", _author.share_count]];
+                                         [self addHeaderLabel:[NSString stringWithFormat:@"主题  %ld", _author.subjects_count]];
+                                         [self addHeaderLabel:[NSString stringWithFormat:@"关注  %ld", _author.following_count]];
+                                         [self addHeaderLabel:[NSString stringWithFormat:@"关注者  %ld", _author.follower_count]];
                                          _name.text = _author.name;
-                                         [self loadAuthorArticles];
-//                                         [self.tableView reloadData];
-//                                         [self.tableView.mj_header endRefreshing];
+//                                         [self loadAuthorArticles];
                                      } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                          NSLog(@"%@", error);
                                          [self.tableView.mj_header endRefreshing];
@@ -103,14 +135,42 @@
 
 #pragma mark - Table view data source
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//
-//    return 0;
-//}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SXSCREEN_W, 20)];
+//    view.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//    view.layer.borderWidth = 0.3;
+    
+    CGFloat labelW = SXSCREEN_W / _headerLabelList.count;
+    
+    for (int i=0; i<_headerLabelList.count; i++) {
+        CGFloat labelX = i * labelW;
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(labelX, 0, labelW, 25)];
+        [label setFont:[UIFont systemFontOfSize:12]];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.layer.borderColor =[UIColor lightGrayColor].CGColor;
+        label.layer.borderWidth = 0.5;
+        /* Section header is in 0th index... */
+        [label setText:_headerLabelList[i]];
+        label.userInteractionEnabled = YES;
+        [view addSubview:label];
+    }
+    
+        [view setBackgroundColor:[UIColor whiteColor]]; //your background color...
+    return view;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _sharesList.count;
 }
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+//    return 20;
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
