@@ -20,12 +20,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *focusBtn;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (nonatomic, strong) AuthorModel *author;
-@property (nonatomic, copy) NSArray *sharesList;
-@property (nonatomic, copy) NSMutableArray *headerLabelList;
+@property (nonatomic, strong) NSMutableArray *sharesList;
+@property (nonatomic, strong) NSMutableArray *headerLabelList;
 //section header label view
 @property (nonatomic, strong) UIView *headerLabelView;
 //当前的label index
 @property (nonatomic, assign) NSUInteger labelIndex;
+//当前页数
+@property (nonatomic, assign) NSNumber *currentPage;
 
 @end
 
@@ -42,6 +44,7 @@
     [super viewDidLoad];
     
     _labelIndex = 0;
+    _currentPage = @1;
     
     UIBarButtonItem *actionBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(right:)];
     UIBarButtonItem *shareBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share:)];
@@ -50,10 +53,9 @@
     
     [self.tableView setTableHeaderView:self.headerView];
     self.avatar.layer.cornerRadius = self.avatar.bounds.size.width / 2.0;
-    NSLog(@"%f", self.avatar.layer.cornerRadius);
     self.focusBtn.layer.cornerRadius = self.focusBtn.bounds.size.height / 2.0;
     
-    [self loadData];
+    [self loadAuthorDetail];
     __weak AuthorViewController *weakSelf = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf loadAuthorArticles];
@@ -73,7 +75,6 @@
 
 //举报
 -(void)right:(id)sender {
-    NSLog(@"right");
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
@@ -93,7 +94,7 @@
     [self.tableView.mj_header beginRefreshing];
 }
 
--(void)loadData {
+-(void)loadAuthorDetail {
     //users/169571?app_key=nid5puvc9t0v7hltuy1u&signature=7ed2d528bd7e5f7c3f97ae9a6ab69a20cc29a413&timestamp=1459216383
     NSString *url = @"users/169571";
     [[[TTNetworkTools SharedNetworkTools]GET:url
@@ -109,7 +110,6 @@
                                          [self addHeaderLabel:[NSString stringWithFormat:@"关注  %ld", _author.following_count]];
                                          [self addHeaderLabel:[NSString stringWithFormat:@"关注者  %ld", _author.follower_count]];
                                          _name.text = _author.name;
-//                                         [self loadAuthorArticles];
                                      } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                          NSLog(@"%@", error);
                                          [self.tableView.mj_header endRefreshing];
@@ -119,24 +119,45 @@
 -(void)loadAuthorArticles {
     //users/169571/shares?app_key=nid5puvc9t0v7hltuy1u&page=1&page_size=20&signature=228d2a4a6c4a8572a2c1618b4466178b246ebab1&timestamp=1459216383
     NSString *url = @"users/169571/shares";
-    [[[TTNetworkTools SharedNetworkTools]GET:url
-                                  parameters:@{ @"app_key": @"nid5puvc9t0v7hltuy1u", @"page":@1, @"page_size":@20,
+    [self loadDataForType:1 url:url];
+}
+
+-(void)loadDataForType:(int)type url:(NSString *)url{
+    NSNumber *page;
+    if (type == 1) {
+        //下拉
+        page = [NSNumber numberWithInt:1];
+    } else {
+        //上拉
+        page = _currentPage = [NSNumber numberWithInt:[_currentPage intValue] + 1];
+    }
+    
+    [[[TTNetworkTools SharedNetworkTools] GET:url
+                                  parameters:@{ @"app_key": @"nid5puvc9t0v7hltuy1u", @"page":page , @"page_size":@20,
                                                 @"signature": @"228d2a4a6c4a8572a2c1618b4466178b246ebab1",
                                                 @"timestamp": @1459216383 }
                                      success:^(NSURLSessionDataTask *task, NSDictionary *responseObject) {
                                          NSDictionary *shares = responseObject[@"data"];
                                          NSArray *arrayM = [AuthorSharesModel objectArrayWithKeyValuesArray:shares];
-                                         _sharesList = [arrayM mutableCopy];
+                                         
+                                         if (type == 1) {
+                                             _sharesList = [arrayM mutableCopy];
+                                             [self.tableView.mj_header endRefreshing];
+                                         } else {
+                                             [_sharesList addObjectsFromArray:arrayM];
+                                             [self.tableView.mj_footer endRefreshing];
+                                         }
                                          [self.tableView reloadData];
-                                         [self.tableView.mj_header endRefreshing];
                                      } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                          NSLog(@"%@", error);
-                                         [self.tableView.mj_header endRefreshing];
                                      }] resume];
 }
 
 -(void)loadMoreData {
-    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+    NSString *url = @"users/169571/shares";
+    [self loadDataForType:2 url:url];
+
+//    [self.tableView.mj_footer endRefreshingWithNoMoreData];
 }
 
 #pragma mark - Table view data source
@@ -184,16 +205,13 @@
     }];
     label.textColor = [UIColor blueColor];
     _labelIndex = label.tag;
+    _currentPage = @1;
     [self.tableView.mj_header beginRefreshing];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _sharesList.count;
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    return 20;
-//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
