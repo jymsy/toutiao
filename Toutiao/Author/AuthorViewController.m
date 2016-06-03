@@ -12,6 +12,7 @@
 #import "AuthorSharesModel.h"
 #import "UIImageView+WebCache.h"
 #import "AuthorShareCell.h"
+#import "AuthorSubscribedModel.h"
 
 @interface AuthorViewController ()
 @property (strong, nonatomic) IBOutlet UIView *headerView;
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (nonatomic, strong) AuthorModel *author;
 @property (nonatomic, strong) NSMutableArray *sharesList;
+@property (nonatomic, strong) NSMutableArray *subscribedList;
 @property (nonatomic, strong) NSMutableArray *headerLabelList;
 //section header label view
 @property (nonatomic, strong) UIView *headerLabelView;
@@ -118,11 +120,28 @@
 
 -(void)loadAuthorArticles {
     //users/169571/shares?app_key=nid5puvc9t0v7hltuy1u&page=1&page_size=20&signature=228d2a4a6c4a8572a2c1618b4466178b246ebab1&timestamp=1459216383
-    NSString *url = @"users/169571/shares";
-    [self loadDataForType:1 url:url];
+    NSString *url;
+    NSString *sig;
+    NSNumber *timestamp = 0;
+    //分享
+    if (_labelIndex == 0) {
+        url = @"users/169571/shares";
+        sig = @"228d2a4a6c4a8572a2c1618b4466178b246ebab1";
+        timestamp = @1459216383;
+    } else if (_labelIndex == 1) {//主题
+        url = @"users/136152/subscribed_subjects";
+        sig = @"bcba889751f73a3303f242d237263678ffdf828a";
+        timestamp = @1461640751;
+    } else if (_labelIndex == 2) {//关注
+        
+    } else if (_labelIndex == 3) {//关注者
+        
+    }
+    
+    [self loadDataForType:1 url:url sig:sig timestamp:timestamp];
 }
 
--(void)loadDataForType:(int)type url:(NSString *)url{
+-(void)loadDataForType:(int)type url:(NSString *)url sig:(NSString *)sig timestamp:(NSNumber *)timestamp{
     NSNumber *page;
     if (type == 1) {
         //下拉
@@ -134,11 +153,13 @@
     
     [[[TTNetworkTools SharedNetworkTools] GET:url
                                   parameters:@{ @"app_key": @"nid5puvc9t0v7hltuy1u", @"page":page , @"page_size":@20,
-                                                @"signature": @"228d2a4a6c4a8572a2c1618b4466178b246ebab1",
-                                                @"timestamp": @1459216383 }
+                                                @"signature": sig,
+                                                @"timestamp": timestamp }
                                      success:^(NSURLSessionDataTask *task, NSDictionary *responseObject) {
                                          NSDictionary *shares = responseObject[@"data"];
-                                         NSArray *arrayM = [AuthorSharesModel objectArrayWithKeyValuesArray:shares];
+                                         
+                                         NSArray *arrayM = [self transformResponseData:shares];
+//                                         NSArray *arrayM = [AuthorSharesModel objectArrayWithKeyValuesArray:shares];
                                          
                                          if (type == 1) {
                                              _sharesList = [arrayM mutableCopy];
@@ -153,11 +174,34 @@
                                      }] resume];
 }
 
+-(NSArray *)transformResponseData:(NSDictionary *)data
+{
+    if (_labelIndex == 0) {
+        return [AuthorSharesModel objectArrayWithKeyValuesArray:data];
+    } else if (_labelIndex == 1) {
+        return [AuthorSubscribedModel objectArrayWithKeyValuesArray:data];
+    }
+    return @[];
+}
+
 -(void)loadMoreData {
+    NSString *sig;
+    NSNumber *timestamp = 0;
     NSString *url = @"users/169571/shares";
-    [self loadDataForType:2 url:url];
+    sig = @"228d2a4a6c4a8572a2c1618b4466178b246ebab1";
+    timestamp = @1459216383;
+    [self loadDataForType:2 url:url sig:sig timestamp:timestamp];
 
 //    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+}
+
+-(NSString *)getLoadActionName:(int)actionIndex {
+    if (actionIndex == 0) {
+        return @"shares";
+    } else if (actionIndex == 1) {
+        return @"subscribed_subjects";
+    }
+    return @"";
 }
 
 #pragma mark - Table view data source

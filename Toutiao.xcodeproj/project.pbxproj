@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		061392031CCF1705005283FB /* AuthorSubscribedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 061392021CCF1705005283FB /* AuthorSubscribedModel.m */; };
 		063D44821C96649800204B22 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D44811C96649800204B22 /* DetailCell.m */; };
 		063D44881C9716EE00204B22 /* CommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D44871C9716EE00204B22 /* CommonCell.m */; };
 		063D448C1C9719FC00204B22 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 063D448B1C9719FC00204B22 /* UIView+Frame.m */; };
@@ -43,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		061392011CCF1705005283FB /* AuthorSubscribedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorSubscribedModel.h; path = Author/AuthorSubscribedModel.h; sourceTree = "<group>"; };
+		061392021CCF1705005283FB /* AuthorSubscribedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorSubscribedModel.m; path = Author/AuthorSubscribedModel.m; sourceTree = "<group>"; };
 		063D44801C96649800204B22 /* DetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCell.h; sourceTree = "<group>"; };
 		063D44811C96649800204B22 /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
 		063D44861C9716EE00204B22 /* CommonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonCell.h; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 				069F5F361CB1150E0084017D /* AuthorSharesModel.m */,
 				069F5F381CB12D340084017D /* AuthorShareCell.h */,
 				069F5F391CB12D340084017D /* AuthorShareCell.m */,
+				061392011CCF1705005283FB /* AuthorSubscribedModel.h */,
+				061392021CCF1705005283FB /* AuthorSubscribedModel.m */,
 			);
 			name = Author;
 			sourceTree = "<group>";
@@ -407,6 +412,7 @@
 				063D44AC1CA3975F00204B22 /* PictureScrollCell.m in Sources */,
 				069F5F3A1CB12D340084017D /* AuthorShareCell.m in Sources */,
 				063D44A11C9E5F5200204B22 /* DetaiTabBar.m in Sources */,
+				061392031CCF1705005283FB /* AuthorSubscribedModel.m in Sources */,
 				06F207E91C8FC86F00F9ADCD /* ResponseModel.m in Sources */,
 				069F5F341CB111300084017D /* AuthorModel.m in Sources */,
 				063D44951C9E410C00204B22 /* MainTabBarController.m in Sources */,
