@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Share" rowHeight="90" id="YR2-hK-U8k" customClass="AuthorShareCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="share" rowHeight="90" id="YR2-hK-U8k" customClass="AuthorShareCell">
                                 <rect key="frame" x="0.0" y="28" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YR2-hK-U8k" id="62e-F6-lsq">
@@ -61,7 +61,7 @@
                                     <outlet property="title" destination="5vh-bA-Jku" id="7yC-S0-ID7"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subject" rowHeight="90" id="Vh7-I1-oU1">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subject" rowHeight="90" id="Vh7-I1-oU1" customClass="AuthorSubscribedCell">
                                 <rect key="frame" x="0.0" y="118" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vh7-I1-oU1" id="yyO-yk-ceh">
@@ -98,6 +98,11 @@
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="authorName" destination="L5T-5c-iR1" id="1rF-7h-FdG"/>
+                                    <outlet property="image" destination="OVO-u7-dWQ" id="fOd-Jg-zsu"/>
+                                    <outlet property="name" destination="dd6-ve-vrn" id="BDz-8w-g1R"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

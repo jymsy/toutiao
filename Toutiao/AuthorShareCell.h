@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AuthorCell.h"
 #import "AuthorSharesModel.h"
 
-@interface AuthorShareCell : UITableViewCell
+@interface AuthorShareCell : AuthorCell
 
 @property (nonatomic, strong) AuthorSharesModel *model;
 

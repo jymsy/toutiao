@@ -28,6 +28,8 @@
 		069F5F341CB111300084017D /* AuthorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F5F331CB111300084017D /* AuthorModel.m */; };
 		069F5F371CB1150E0084017D /* AuthorSharesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F5F361CB1150E0084017D /* AuthorSharesModel.m */; };
 		069F5F3A1CB12D340084017D /* AuthorShareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F5F391CB12D340084017D /* AuthorShareCell.m */; };
+		06EF38491D017BE900B8E57A /* AuthorSubscribedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EF38481D017BE900B8E57A /* AuthorSubscribedCell.m */; };
+		06EF384C1D0183A200B8E57A /* AuthorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EF384B1D0183A200B8E57A /* AuthorCell.m */; };
 		06F207BF1C8C59A100F9ADCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207BE1C8C59A100F9ADCD /* main.m */; };
 		06F207C21C8C59A200F9ADCD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F207C11C8C59A200F9ADCD /* AppDelegate.m */; };
 		06F207CB1C8C59A200F9ADCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06F207C91C8C59A200F9ADCD /* Main.storyboard */; };
@@ -83,6 +85,10 @@
 		069F5F361CB1150E0084017D /* AuthorSharesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorSharesModel.m; sourceTree = "<group>"; };
 		069F5F381CB12D340084017D /* AuthorShareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorShareCell.h; sourceTree = "<group>"; };
 		069F5F391CB12D340084017D /* AuthorShareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorShareCell.m; sourceTree = "<group>"; };
+		06EF38471D017BE900B8E57A /* AuthorSubscribedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorSubscribedCell.h; path = Author/AuthorSubscribedCell.h; sourceTree = "<group>"; };
+		06EF38481D017BE900B8E57A /* AuthorSubscribedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorSubscribedCell.m; path = Author/AuthorSubscribedCell.m; sourceTree = "<group>"; };
+		06EF384A1D0183A200B8E57A /* AuthorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorCell.h; path = Author/AuthorCell.h; sourceTree = "<group>"; };
+		06EF384B1D0183A200B8E57A /* AuthorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorCell.m; path = Author/AuthorCell.m; sourceTree = "<group>"; };
 		06F207BA1C8C59A100F9ADCD /* Toutiao.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toutiao.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06F207BE1C8C59A100F9ADCD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		06F207C01C8C59A100F9ADCD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -160,6 +166,10 @@
 				069F5F391CB12D340084017D /* AuthorShareCell.m */,
 				061392011CCF1705005283FB /* AuthorSubscribedModel.h */,
 				061392021CCF1705005283FB /* AuthorSubscribedModel.m */,
+				06EF38471D017BE900B8E57A /* AuthorSubscribedCell.h */,
+				06EF38481D017BE900B8E57A /* AuthorSubscribedCell.m */,
+				06EF384A1D0183A200B8E57A /* AuthorCell.h */,
+				06EF384B1D0183A200B8E57A /* AuthorCell.m */,
 			);
 			name = Author;
 			sourceTree = "<group>";
@@ -410,12 +420,14 @@
 			files = (
 				063D449B1C9E41AA00204B22 /* BarButton.m in Sources */,
 				063D44AC1CA3975F00204B22 /* PictureScrollCell.m in Sources */,
+				06EF384C1D0183A200B8E57A /* AuthorCell.m in Sources */,
 				069F5F3A1CB12D340084017D /* AuthorShareCell.m in Sources */,
 				063D44A11C9E5F5200204B22 /* DetaiTabBar.m in Sources */,
 				061392031CCF1705005283FB /* AuthorSubscribedModel.m in Sources */,
 				06F207E91C8FC86F00F9ADCD /* ResponseModel.m in Sources */,
 				069F5F341CB111300084017D /* AuthorModel.m in Sources */,
 				063D44951C9E410C00204B22 /* MainTabBarController.m in Sources */,
+				06EF38491D017BE900B8E57A /* AuthorSubscribedCell.m in Sources */,
 				063D44A71C9F907E00204B22 /* AuthorPresentationController.m in Sources */,
 				06F207DD1C8C7F0D00F9ADCD /* ArticleCell.m in Sources */,
 				069F5F371CB1150E0084017D /* AuthorSharesModel.m in Sources */,

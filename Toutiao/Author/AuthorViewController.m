@@ -12,6 +12,7 @@
 #import "AuthorSharesModel.h"
 #import "UIImageView+WebCache.h"
 #import "AuthorShareCell.h"
+#import "AuthorSubscribedCell.h"
 #import "AuthorSubscribedModel.h"
 
 @interface AuthorViewController ()
@@ -59,9 +60,11 @@
     
     [self loadAuthorDetail];
     __weak AuthorViewController *weakSelf = self;
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [weakSelf loadAuthorArticles];
-    }];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadAuthorArticles)];
+
+//    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        [weakSelf loadAuthorArticles];
+//    }];
     
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [weakSelf loadMoreData];
@@ -159,7 +162,6 @@
                                          NSDictionary *shares = responseObject[@"data"];
                                          
                                          NSArray *arrayM = [self transformResponseData:shares];
-//                                         NSArray *arrayM = [AuthorSharesModel objectArrayWithKeyValuesArray:shares];
                                          
                                          if (type == 1) {
                                              _sharesList = [arrayM mutableCopy];
@@ -263,10 +265,28 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AuthorSharesModel *model = _sharesList[indexPath.row];
-    AuthorShareCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Share" forIndexPath:indexPath];
-    cell.model = model;
-    return cell;
+    if (_labelIndex == 0) {
+        AuthorShareCell *cell = [tableView dequeueReusableCellWithIdentifier:@"share" forIndexPath:indexPath];
+        cell.model = _sharesList[indexPath.row];
+        return cell;
+    } else if (_labelIndex == 1) {
+        AuthorSubscribedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"subject" forIndexPath:indexPath];
+        cell.model = _sharesList[indexPath.row];
+        return cell;
+    }
+    
+//    AuthorSharesModel *model = _sharesList[indexPath.row];
+    return [UITableViewCell new];
+}
+
+-(NSString *)getCellIdentifier
+{
+    if (_labelIndex == 0) {
+        return @"share";
+    } else if (_labelIndex == 1) {
+        return @"subject";
+    }
+    return @"";
 }
 
 
